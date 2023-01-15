@@ -61,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
         mDatabase.child("Ads").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                adsList.clear();
+
                 for(DataSnapshot snapshot1:snapshot.getChildren()){
                     AdModel model=snapshot1.getValue(AdModel.class);
                     adsList.add(model);
